@@ -1,11 +1,7 @@
-y = 1
-x = 2
-z = 0
+x = 1
+y = 2
+z = x + y
 sum = 0
-
-
-print(y)
-print(x)
 
 while x < 4000000:
     z = x
