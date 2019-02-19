@@ -20,16 +20,11 @@ def main():
 
     i = 100
     u = 100
-    i1 = 0
-    u2 = 0
-    for i in range (i, x, 1 ):
-        for u in range (u, x, 1 ):
+    for i in range (x, i, -1 ):
+        for u in range (x, u,-1 ):
             if (is_palindromic( i * u )):
-                z = i * u 
-                i1 = i
-                u2 = u
-    print( i1 )
-    print( u2 )
+                z = i * u
+                break
     print( z )
-
+    
 main()

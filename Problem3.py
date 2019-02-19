@@ -3,23 +3,23 @@
 
 # What is the largest prime factor of the number 600851475143 ?
 
+
+def is_prime(n):
+    for i in range(3, n):
+        if n % i == 0:
+            return False
+    return True
+
 def main():
-    n = 600851475143
-    i = 2
+    x = 600851475143
+    y = 2
+    z = 1
+    while z != x:
+        y = y + 1
+        if is_prime(y):
+            if x % y == 0:
+                z = z * y
 
-    while i < n:
-        if is_prime(i):
-            if n % i == 0:
-                print(i)
-        i += 1
-    
-def is_prime(a):
-    x = True 
-    for i in (2, a):
-            while x:
-               if a%i == 0:
-                   x = False
-               else:
-                   x = True
+    print(y)
 
-main()
+main() 
