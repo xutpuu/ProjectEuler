@@ -6,8 +6,6 @@
 n = 2520
 x = 11
 
-
-
 def isDivisible ( number ):
     i = 1
     x = 21
