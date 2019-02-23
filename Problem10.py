@@ -1,24 +1,37 @@
-
 # Problem 10 
 # The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
 # Find the sum of all the primes below two million.
 
-def is_prime(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
+# Problem 10 
+# The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
-def main():
-    s = 0
-    n = 2000000
+# Find the sum of all the primes below two million.
+import math as m
 
-    for i in range(n):
-        if i > 1 and (is_prime(i)):
-            print(i)
-            s = s + i
-    print("Sum of all prime number below {0:0d} is {1:d}".format(n,s))
-        
+limit = 2000000
+crosslimit = m.sqrt(limit)
+sieve = []
 
-main()
+n = 1
+for n in range(limit):
+    sieve.append(False)
+
+n = 4
+for n in range(n,limit,2):
+    sieve[n]=True
+
+n = 3
+for n in range(n,int(crosslimit),2):
+    if not sieve[n]:
+        m = n * n
+        for m in range(m,limit,2*n):
+            sieve[m] = True
+
+sum = 0
+n = 2
+for n in range(n,limit,1):
+    if not sieve[n]:
+        sum = sum + n
+
+print(sum)
