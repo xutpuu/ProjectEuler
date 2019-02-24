@@ -55,6 +55,8 @@ def __main__():
         for j in range(16):
             if prod < prod_Line(i,j,n):
                 prod = prod_Line(i,j,n)
+            if prod < prod_Line(j,i,n):
+                prod = prod_Line(j,i,n)
             if prod < prod_Cross(i,j,n, 1):
                 prod = prod_Cross(i,j,n, 1)
             if prod < prod_Cross(i,j,n, 0):
