@@ -3,14 +3,15 @@
 # https://projecteuler.net/project/images/p015.gif
 # How many such routes are there through a 20×20 grid?
 
-size = 2
+size = 20
 
 n = size + 1
 
-matrix = [[0 for x in range(n)] for y in range(n)] 
+matrix = [[1 for i in range(n)] for j in range(n)] 
 
-for row in matrix:
-    for cell in row: 
-        print(cell)
+for i in range(1,n,1):
+    for j in range(1,n,1):
+        matrix[i][j] = matrix[i-1][j] + matrix[i][j-1]
 
-print(matrix)
+
+print("In a", size,"x",size ,"grid there are", matrix[size][size], "possible paths.")
