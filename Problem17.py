@@ -22,7 +22,7 @@ def int_to_en(num):
 
     if (num < 1000):
         if num % 100 == 0: return d[num // 100] + 'hundred'
-        else: return d[num // 100] + 'hundredand' + int_to_en(num % 100)
+        else: return d[num // 100] + 'hundred'+'and' + int_to_en(num % 100)
     else: return 'onethousand'
 
 
