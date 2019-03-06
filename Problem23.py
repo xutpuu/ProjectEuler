@@ -33,7 +33,8 @@ for i in range(2,limit,1):
 
 
 canBeAbundant = []
-for i in range(0,numbers.count,1):
-    for j in range(0,numbers.count,1):
-        if (numbers[i] + numbers[j]) < limit:
-            
+for i in range(0,len(numbers),1):
+    for j in range(0,len(numbers),1):
+        if (numbers[i] + numbers[j]) <= limit:
+                canBeAbundant.insert(int(numbers[i]) + int(numbers[j]),True)
+        else: break
