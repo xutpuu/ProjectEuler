@@ -38,3 +38,10 @@ for i in range(0,len(numbers),1):
         if (numbers[i] + numbers[j]) <= limit:
                 canBeAbundant.insert(int(numbers[i]) + int(numbers[j]),True)
         else: break
+
+sum = 0
+for i in range(1,limit,1):
+        if canBeAbundant[i] == False:
+                sum += i
+
+print(sum)
