@@ -15,33 +15,39 @@ import math as m
 limit = 28123
 
 def isAbundant(number):
-    sum = 0
-    sqrt = int(m.sqrt(number))
-    for i in range(1,number,1):
-        if number % i == 0:
-            sum += i
-    if sum > number:
-        return True
-    else: return False
+        if number == 1:
+                return 1
+        n = m.ceil(m.sqrt(number))
+        total = 1
+        divisor = 2
+        while (divisor < n):
+                if number % divisor == 0:
+                        total += divisor
+                        total += number//divisor
+                divisor+=1
+        if n**2 == number:
+                total += n
+        if total > number:
+                return True
+        else: 
+                return False
 
-
-numbers = []
-
-for i in range(2,limit,1):
+abundentNumbers = []
+for i in range(2, limit+1):
     if isAbundant(i):
-        numbers.append(i)
+        abundentNumbers.append(i)
 
+canBeAbundant = [False]*(limit+1)
+for i in range(0, len(abundentNumbers)):
+    for j in range(i, len(abundentNumbers)):
+        sumOfAbundants = abundentNumbers[i] + abundentNumbers[j]
+        if sumOfAbundants <= limit:
+                if canBeAbundant[sumOfAbundants] == False:
+                        canBeAbundant[sumOfAbundants] = True
 
-canBeAbundant = []
-for i in range(0,len(numbers),1):
-    for j in range(0,len(numbers),1):
-        if (numbers[i] + numbers[j]) <= limit:
-                canBeAbundant.insert(int(numbers[i]) + int(numbers[j]),True)
-        else: break
-
-sum = 0
-for i in range(1,limit,1):
+sums = 0
+for i in range(1, len(canBeAbundant)):
         if canBeAbundant[i] == False:
-                sum += i
+                sums += i
 
-print(sum)
+print(sums)
