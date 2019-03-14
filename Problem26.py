@@ -15,9 +15,10 @@
 
 limit = 1000
 length = 0
+num = 0
 
 for i in reversed(range(limit)):
-    if length > 0:
+    if length >= i:
         break
     
     remain = [0]*limit
@@ -31,6 +32,7 @@ for i in reversed(range(limit)):
         position += 1
     
     if position - remain[value] > length:
+        num = i
         length = position - remain[value]
 
-print(length)
+print(num)
