@@ -13,3 +13,24 @@
 
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
+limit = 1000
+length = 0
+
+for i in reversed(range(limit)):
+    if length > 0:
+        break
+    
+    remain = [0]*limit
+    value = 1
+    position = 0
+
+    while remain[value] == 0 and value != 0:
+        remain[value] = position
+        value *= 10
+        value %= i 
+        position += 1
+    
+    if position - remain[value] > length:
+        length = position - remain[value]
+
+print(length)
