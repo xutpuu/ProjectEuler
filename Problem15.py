@@ -7,11 +7,11 @@ size = 20
 
 n = size + 1
 
-matrix = [[1 for i in range(n)] for j in range(n)] 
+matrix = [[1 for i in range(n)] for j in range(n)]
 
-for i in range(1,n,1):
-    for j in range(1,n,1):
-        matrix[i][j] = matrix[i-1][j] + matrix[i][j-1]
+for i in range(1, n, 1):
+    for j in range(1, n, 1):
+        matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1]
 
 
-print("In a", size,"x",size ,"grid there are", matrix[size][size], "possible paths.")
+print("In a", size, "x", size, "grid there are", matrix[size][size], "possible paths.")

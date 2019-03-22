@@ -13,8 +13,8 @@
 limit = 100
 sortL = []
 
-for i in range(2,limit+1,1):
-    for j in range(2,limit+1,1):
-        sortL.append(i**j)
+for i in range(2, limit + 1, 1):
+    for j in range(2, limit + 1, 1):
+        sortL.append(i ** j)
 
 print(len(sorted(set(sortL))))

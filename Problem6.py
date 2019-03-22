@@ -1,4 +1,4 @@
-# Problem 6 
+# Problem 6
 # The sum of the squares of the first ten natural numbers is,
 # 1^2 + 2^2 + ... + 10^2 = 385
 
@@ -14,7 +14,7 @@ ss = 0
 rang = 101
 
 for i in range(rang):
-    ss = ss + i*i
+    ss = ss + i * i
     s = s + i
 
-print(s*s - ss)
+print(s * s - ss)

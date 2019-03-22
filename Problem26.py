@@ -20,17 +20,17 @@ num = 0
 for i in reversed(range(limit)):
     if length >= i:
         break
-    
-    remain = [0]*limit
+
+    remain = [0] * limit
     value = 1
     position = 0
 
     while remain[value] == 0 and value != 0:
         remain[value] = position
         value *= 10
-        value %= i 
+        value %= i
         position += 1
-    
+
     if position - remain[value] > length:
         num = i
         length = position - remain[value]

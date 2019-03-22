@@ -13,10 +13,11 @@ power = 5
 limit = 1000000
 sum = 0
 
+
 def isNum(number):
     sum = 0
     for i in str(number):
-        sum += int(i)**power
+        sum += int(i) ** power
     if sum == number:
         return True
     else:
@@ -28,4 +29,4 @@ for i in range(2, limit, 1):
         sum += i
         print(i)
 
-print("The sum is",sum)
+print("The sum is", sum)

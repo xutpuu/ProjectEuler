@@ -12,11 +12,11 @@
 size = 1001
 sum = 1
 
-for i in range(1,size+1,2):
-    if i > 1 : 
-        period = i**2 
+for i in range(1, size + 1, 2):
+    if i > 1:
+        period = i ** 2
         tsum = 0
-        for j in range(1,4,1):
+        for j in range(1, 4, 1):
             tsum += period - j * (i - 1)
         sum += period + tsum
 
