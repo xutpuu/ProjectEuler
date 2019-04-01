@@ -1,4 +1,4 @@
-# Problem 11 
+# Problem 11
 # In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
 
 # 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -46,6 +46,7 @@ matrix =   [[ 8, 2,22,97,38,15, 0,40, 0,75, 4, 5, 7,78,52,12,50,77,91, 8],
             [20,73,35,29,78,31,90, 1,74,31,49,71,48,86,81,16,23,57, 5,54],
             [ 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48]]
 
+
 def __main__():
     prod = 1
     n = 4
@@ -53,32 +54,34 @@ def __main__():
     j = 0
     for i in range(16):
         for j in range(16):
-            if prod < prod_Line(i,j,n):
-                prod = prod_Line(i,j,n)
-            if prod < prod_Line(j,i,n):
-                prod = prod_Line(j,i,n)
-            if prod < prod_Cross(i,j,n, 1):
-                prod = prod_Cross(i,j,n, 1)
-            if prod < prod_Cross(i,j,n, 0):
-                prod = prod_Cross(i,j,n, 0)
+            if prod < prod_Line(i, j, n):
+                prod = prod_Line(i, j, n)
+            if prod < prod_Line(j, i, n):
+                prod = prod_Line(j, i, n)
+            if prod < prod_Cross(i, j, n, 1):
+                prod = prod_Cross(i, j, n, 1)
+            if prod < prod_Cross(i, j, n, 0):
+                prod = prod_Cross(i, j, n, 0)
     print(prod)
 
-def prod_Line(i,j,n):
+
+def prod_Line(i, j, n):
     prod = 1
-    for j in range(j, j+n, 1):
+    for j in range(j, j + n, 1):
         if j + 4 and i + 4 < 20:
             prod = prod * matrix[i][j]
     return prod
 
-def prod_Cross(i,j,n,b):
+
+def prod_Cross(i, j, n, b):
     prod = 1
     k = 1
     if j + 4 < 20:
         for j in range(j, j + n, 1):
-                z = j + (n - k)*b
-                prod = prod * matrix[i][z]
-                i = i + 1
-                k = k + 2
+            z = j + (n - k) * b
+            prod = prod * matrix[i][z]
+            i = i + 1
+            k = k + 2
 
     return prod
 

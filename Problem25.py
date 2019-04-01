@@ -20,14 +20,14 @@
 # What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
 
 fibonachi = []
-fibonachi.append(1) 
-fibonachi.append(1) 
+fibonachi.append(1)
+fibonachi.append(1)
 l = 1
 fib = 1
 i = 1
 
 while l < 1000:
-    fib = fibonachi[i-1]+fibonachi[i]
+    fib = fibonachi[i - 1] + fibonachi[i]
     fibonachi.append(fib)
     i += 1
     l = len(str(fib))
