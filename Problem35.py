@@ -3,7 +3,7 @@
 # How many circular primes are there below one million?
 
 import math
-
+import time
 
 def countDigits(n):
     cnt = 0
@@ -42,6 +42,7 @@ def primesList(limit):
 
 
 def main():
+    start = time.time()
     rez = []
     limits = 1000000
     primes = primesList(limits)
@@ -57,8 +58,9 @@ def main():
                 count += 1
         if count > 0 and count == digit - 1:
             rez.append(num)
-
+    end = time.time()
     print(len(rez))
+    print(end - start)
 
 
 if __name__ == "__main__":
