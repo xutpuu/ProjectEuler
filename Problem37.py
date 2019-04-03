@@ -33,15 +33,41 @@ def primesList(limit):
 
     return result
 
+
+def countDigits(n):
+    cnt = 0
+    while n > 0:
+        cnt += 1
+        n //= 10
+    return cnt
+
+
+def program():
+    sums = 0
+    limit = 1000000
+    seeve = primesList(limit)
+    for n in seeve:
+        if n > 7:
+            digits = countDigits(n)
+            d = 1
+            o = 10 ** digits
+            counter = 1
+            for i in range(1, digits):
+                d *= 10
+                o /= 10
+                if int(n // d) in seeve and int(n % o) in seeve:
+                    counter += 1
+            if counter == digits:
+                sums += n
+    print(sums)
+
+
 def main():
     start = t.time()
-    primes = primesList(100000000)
-    print(len(str(primes[-5])))
-    # for prime in primes:
-    #     if len(str(prime)) == 10:
-    #         print(prime)
+    program()
     end = t.time()
     print("Total time taken:", end - start, "ms")
+
 
 if __name__ == "__main__":
     main()
