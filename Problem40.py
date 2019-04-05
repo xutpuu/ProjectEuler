@@ -3,10 +3,22 @@
 # It can be seen that the 12th digit of the fractional part is 1.
 # If dₙ represents the nth digit of the fractional part, find the value of the following expression.
 # d₁ × d₁₀ × d₁₀₀ × d₁₀₀₀ × d₁₀₀₀₀ × d₁₀₀₀₀₀ × d₁₀₀₀₀₀₀
-import time
+def benchmark(func):
+    import time
+
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        return_value = func(*args, **kwargs)
+        end = time.time()
+        print("[*] Total time taken: {} sec.".format(end - start))
+        return return_value
+
+    return wrapper
 
 
-def program(limit):
+@benchmark
+def main():
+    limit = 1000000
     num = "0."
     digit = 1
     n = 1
@@ -16,13 +28,6 @@ def program(limit):
         digit *= int(num[n + 2])
         n *= 10
     print(digit)
-
-
-def main():
-    start = time.time()
-    program(1000000)
-    end = time.time()
-    print("Total time taken:", end - start, "ms")
 
 
 if __name__ == "__main__":
