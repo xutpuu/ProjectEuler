@@ -47,7 +47,7 @@ def main():
         H.append(hexagonal(i))
 
     for i in T:
-        if i in P and i in H and i >40755 :
+        if i in P and i in H and i > 40755 :
             print(int(i))
             break
 
