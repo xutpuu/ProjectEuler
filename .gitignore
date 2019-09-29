@@ -4,3 +4,4 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 .vscode/settings.json
+helper/__pycache__/primes.cpython-37.pyc
