@@ -47,3 +47,29 @@ def prime_factors(n):
     if is_prime(int(n)):
         factors.append(int(n))
     return factors
+
+
+def consecutive(l):
+    c = 1
+    consec = []
+    while len(consec) < l:
+        primes = set(prime_factors(c))
+        if len(primes) == l:
+            consec.append(c)
+        else:
+            consec = []
+        c += 1
+    print(consec)
+
+
+def SieveOfEratosthenes(limit):
+    limitn = limit + 1
+    primes = dict()
+    for i in range(2, limitn):
+        primes[i] = True
+
+    for i in primes:
+        factors = range(i, limitn, i)
+        for f in factors[1:]:
+            primes[f] = False
+    return [i for i in primes if primes[i] == True]
